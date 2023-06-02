@@ -1,0 +1,57 @@
+.Page {
+  @apply relative;
+}
+
+.PageImage {
+  @apply sticky top-0;
+  /* @apply sticky top-0 left-0 right-0; */
+
+  height: 80vh;
+  transition: height 0.3s;
+}
+
+.PageImage img {
+  object-fit: cover;
+}
+
+.PageContent {
+  @apply sticky top-0  text-white rounded-t-2xl -mt-4 px-6 pb-6 flex flex-col;
+  padding-top: 10vh;
+  min-height: 80vh;
+
+  box-shadow: inset 0 5px 0 #ffe7bd, inset 0 10px 0 #f28a0f,
+    inset 0 15px 0 #e5340b;
+
+  background-image: radial-gradient(
+    circle at top left,
+    var(--slug-start),
+    var(--slug-stop)
+  );
+}
+
+.PageTitle {
+  @apply font-display text-5xl;
+}
+
+.PageContent a {
+  @apply mt-auto mx-4 rounded-full border-2 p-2 text-center shadow-lg;
+
+  color: #ffe7bd;
+  border-color: currentColor;
+}
+
+.PageComponents {
+  @apply text-2xl;
+}
+
+.PageComponents span::before {
+  content: "- ";
+}
+
+.Page--scrolled .PageContent header {
+  @apply mb-4;
+}
+
+.Page--scrolled .PageImage {
+  height: 50vh;
+}
