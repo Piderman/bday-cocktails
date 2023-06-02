@@ -1,0 +1,24 @@
+.Card {
+  @apply block relative rounded-2xl overflow-hidden;
+
+  height: 80vh;
+}
+
+.CardTitle {
+  @apply absolute bottom-4 left-4 text-orange-400 font-display text-4xl z-10;
+}
+
+.Card img {
+  object-fit: cover;
+}
+
+.ImageOverlay::before {
+  @apply absolute inset-0;
+
+  content: "";
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.6) 20%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
