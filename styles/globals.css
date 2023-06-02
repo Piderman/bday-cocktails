@@ -6,15 +6,26 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --slug-start: #0b0835;
+  --slug-stop: #0c5679;
+}
+
+html {
+  height: 100%;
+  background-image: linear-gradient(
+    70deg,
+    #3f8a8c 0 20%,
+    #0c5679 0 20%,
+    #0b0835 0 40%,
+    #e5340b 0 60%,
+    #f28a0f 0 80%,
+    #ffe7bd 0 100%
+  );
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-}
-
-h1 {
-  font-family: var(--font-deco);
-  font-size: 24px;
 }
 
 .landing-carousel .swiper-slide {
@@ -22,5 +33,56 @@ h1 {
 }
 
 .landing-carousel {
-  /* margin-left: 24px; */
+  padding-left: 24px !important;
+}
+
+[data-slug="brandy-alexander"] {
+  --slug-start: #492100;
+  --slug-stop: #765830;
+}
+
+[data-slug="midori-sour"] {
+  --slug-start: #325407;
+  --slug-stop: #9fc31f;
+}
+[data-slug="harvey-wallbanger"] {
+  --slug-start: #e7a601;
+  --slug-stop: #f4cd4f;
+}
+[data-slug="godfather"] {
+  --slug-start: #712e00;
+  --slug-stop: #feb701;
+}
+[data-slug="raspberry-basil-sambuca"] {
+  --slug-start: #940013;
+  --slug-stop: #fd6795;
+}
+[data-slug="sambuca-collins"] {
+  --slug-stop: #5d5d5e;
+  --slug-start: #bbb0b0;
+}
+
+.filter button {
+  @apply w-1/4 text-center border-2 p-2;
+
+  background: #ffe7bd;
+  color: #0b0835;
+  border-color: currentColor;
+}
+
+.filter button.active {
+  background: #0b0835;
+  color: #ffe7bd;
+}
+
+.filter button:first-child {
+  @apply rounded-l-md;
+}
+
+.filter button:last-child {
+  @apply rounded-r-md;
+}
+
+.filter button + button {
+  border-left: 0;
 }

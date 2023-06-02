@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useState } from "react";
 import classNames from "classnames";
+import Head from "next/head";
 
 export default function Home({
   drinks,
@@ -22,7 +23,10 @@ export default function Home({
     : drinks.filter(({ glass }) => glass === filterModel);
 
   return (
-    <main>
+    <main className="pt-8">
+      <Head>
+        <title>Happy 70th Mumma Bear</title>
+      </Head>
       <Swiper
         slidesPerView={"auto"}
         className="landing-carousel"
@@ -34,20 +38,26 @@ export default function Home({
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <div className="filter">
+      <div className="filter flex mt-8 mx-2">
         {filterOptions.map((option, index) => (
           <button
             key={index}
             onClick={() => setFilterModel(option.value)}
             className={classNames({
-              active: option.label === filterModel,
+              active: option.value == filterModel,
             })}
           >
             {option.label}
           </button>
         ))}
       </div>
+      <a
+        className="sr-only"
+        href="https://www.flaticon.com/free-icons/cocktail"
+        title="cocktail icons"
+      >
+        Cocktail icons created by Freepik - Flaticon
+      </a>
     </main>
   );
 }

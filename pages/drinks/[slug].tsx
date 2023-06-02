@@ -1,3 +1,5 @@
+import { DrinkPage } from "@/components/drink-page";
+import Head from "next/head";
 import {
   drinks,
   DrinkSlugs,
@@ -9,31 +11,18 @@ export default function DrinksPage({
 }: ReturnType<typeof getStaticProps>["props"]) {
   return (
     <div key={entry.slug}>
-      <article>
-        <div className="image">
-          <img src={`/images/drinks/${entry.slug}.jpg`} alt="" />
-        </div>
-        <div className="content">
-          <header>
-            <h1>{entry.title}</h1>
-          </header>
+      <DrinkPage entry={entry} />
+      <Head>
+        <title>{entry.title}</title>
+      </Head>
 
-          <div className="wat">
-            {entry.alcohol.map((label, index) => (
-              <div key={index}>
-                <i />
-                <span>{label}</span>
-              </div>
-            ))}
-            {entry.ingredients.map((label, index) => (
-              <div key={index}>
-                <i />
-                <span>{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </article>
+      <a
+        className="sr-only"
+        href="https://www.flaticon.com/free-icons/right-chevron"
+        title="right chevron icons"
+      >
+        Right chevron icons created by Designkuu - Flaticon
+      </a>
     </div>
   );
 }
